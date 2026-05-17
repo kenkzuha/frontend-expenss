@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bg:          #ffffff;
+  --bg2:         #f7f7f8;
+  --bg3:         #f0f0f2;
+  --text:        #0d0d0d;
+  --text2:       #5a5a6a;
+  --text3:       #9898a8;
+
+  --accent:      #2563eb;
+  --accent-bg:   #eff4ff;
+  --accent-text: #1a4fc7;
+
+  --green:       #16a34a;
+  --green-bg:    #f0fdf4;
+  --green-text:  #15803d;
+
+  --border:      rgba(0, 0, 0, 0.08);
+  --border2:     rgba(0, 0, 0, 0.13);
+
+  --radius:      10px;
+  --radius-lg:   14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:          #0f0f11;
+    --bg2:         #1a1a1f;
+    --bg3:         #222228;
+    --text:        #f0f0f2;
+    --text2:       #9898b0;
+    --text3:       #60607a;
+
+    --accent-bg:   #1a2a4a;
+    --accent-text: #7aa3f5;
+
+    --green-bg:    #0d2818;
+    --green-text:  #4ade80;
+
+    --border:      rgba(255, 255, 255, 0.08);
+    --border2:     rgba(255, 255, 255, 0.13);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--border);
+  max-width: 680px;
+  margin: 0 auto 56px;
+}

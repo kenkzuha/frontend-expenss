@@ -1,0 +1,21 @@
+<section class="social-proof">
+  <div class="sp-nums">
+    <div *ngFor="let stat of stats" class="sp-num">
+      <div class="sp-val">{{ stat.value }}</div>
+      <div class="sp-label">{{ stat.label }}</div>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <div *ngFor="let t of testimonials" class="testi">
+      <p class="testi-text">"{{ t.quote }}"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">{{ t.initials }}</div>
+        <div>
+          <div class="testi-name">{{ t.name }}</div>
+          <div class="testi-loc">{{ t.location }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

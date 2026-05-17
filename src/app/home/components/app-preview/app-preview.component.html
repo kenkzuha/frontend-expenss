@@ -1,0 +1,60 @@
+<div class="preview-wrap">
+  <div class="preview-frame">
+
+    <div class="topbar">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--yellow"></span>
+      <span class="dot dot--green"></span>
+    </div>
+
+    <div class="preview-content">
+      <div class="preview-header">
+        <span class="preview-title">May overview</span>
+        <span class="preview-sub">¥200,000 budget</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Spent</div>
+          <div class="stat-value">¥138k</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Remaining</div>
+          <div class="stat-value stat-value--accent">¥62k</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Saved</div>
+          <div class="stat-value stat-value--green">+¥18k</div>
+        </div>
+      </div>
+
+      <div class="tx-list">
+        <div
+          *ngFor="let tx of transactions"
+          class="tx-row"
+        >
+          <div class="tx-icon">
+            <ng-container [ngSwitch]="tx.icon">
+              <svg *ngSwitchCase="'home'" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <svg *ngSwitchCase="'cart'" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <svg *ngSwitchCase="'train'" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M9 19l-2 3M15 19l2 3M9 12h6M12 3v4"/><circle cx="9" cy="14" r="1" fill="currentColor"/><circle cx="15" cy="14" r="1" fill="currentColor"/></svg>
+              <svg *ngSwitchCase="'wallet'" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V8H6a2 2 0 0 1 0-4h14v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><circle cx="17" cy="12" r="1" fill="currentColor"/></svg>
+            </ng-container>
+          </div>
+          <div class="tx-info">
+            <div class="tx-name">{{ tx.name }}</div>
+            <div class="tx-cat">{{ tx.category }}</div>
+          </div>
+          <div
+            class="tx-amount"
+            [class.tx-amount--neg]="tx.amount < 0"
+            [class.tx-amount--pos]="tx.amount > 0"
+          >
+            {{ formatAmount(tx.amount) }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
