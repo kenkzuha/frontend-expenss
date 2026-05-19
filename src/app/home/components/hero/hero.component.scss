@@ -5,35 +5,27 @@
   text-align: center;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--accent-text);
-  background: var(--accent-bg);
-  border: 0.5px solid rgba(37, 99, 235, 0.18);
-  padding: 5px 14px;
-  border-radius: 20px;
+.hero-logo {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1;
+  color: var(--text);
   margin-bottom: 28px;
-}
 
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
+  em {
+    font-style: normal;
+    color: var(--accent);
+  }
 }
 
 h1 {
-  font-size: 48px;
-  font-weight: 600;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.25;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 
   .muted {
     color: var(--text2);
@@ -41,7 +33,7 @@ h1 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text2);
   max-width: 440px;
   margin: 0 auto 36px;
@@ -69,6 +61,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
   transition: opacity 0.15s;
 
   &:hover {
@@ -85,6 +78,7 @@ p {
   padding: 12px 22px;
   border-radius: var(--radius);
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.15s, color 0.15s;
 
   &:hover {

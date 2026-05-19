@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-auth-layout',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
+  templateUrl: './authlayout.component.html',
+  styleUrls: ['./authlayout.component.scss'],
 })
-export class HeroComponent {}
+export class AuthLayoutComponent {}

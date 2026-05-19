@@ -1,11 +1,18 @@
 <nav class="navbar">
-  <div class="logo">Expen<span>ss</span></div>
+  <a class="logo" routerLink="/">
+    <div class="logo-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="80" height="80" rx="18" fill="#2563eb"/>
+        <rect x="22" y="22" width="36" height="5" rx="2" fill="white"/>
+        <rect x="22" y="37.5" width="26" height="5" rx="2" fill="white"/>
+        <rect x="22" y="53" width="36" height="5" rx="2" fill="white"/>
+      </svg>
+    </div>
+    <span class="logo-text">Expen<em>ss</em></span>
+  </a>
 
   <div class="nav-right">
-    <a class="nav-link" href="#">Features</a>
-    <a class="nav-link" href="#">Pricing</a>
-    <a class="nav-link" href="#">About</a>
-    <button class="btn-ghost">Sign in</button>
-    <button class="btn-solid">Get started</button>
+    <button class="btn-ghost" routerLink="/login">Sign in</button>
+    <button class="btn-solid" routerLink="/signup">Get started</button>
   </div>
 </nav>
