@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthLayoutComponent } from '../../authlayout/authlayout.component';
+import { AuthLayoutComponent } from '../../home/components/authlayout/authlayout.component';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +15,19 @@ export class LoginComponent {
   form: FormGroup;
   showPassword = false;
   isLoading = false;
+  successMessage = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required]],
     });
+    const navigation = this.router.getCurrentNavigation();
+    if(navigation?.extras.state){
+      this.successMessage = navigation.extras.state[
+        'successMessage' 
+      ] || '';
+    }
   }
 
   get username() { return this.form.get('username')!; }
@@ -32,7 +39,6 @@ export class LoginComponent {
       return;
     }
     this.isLoading = true;
-    // TODO: hook up to your auth service
     console.log('Login payload:', this.form.value);
   }
 }

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
-import { AuthLayoutComponent } from '../../authlayout/authlayout.component';
+import { AuthLayoutComponent } from '../../home/components/authlayout/authlayout.component';
 import { AuthService } from '../auth.service';
 
 function passwordStrength(control: AbstractControl): ValidationErrors | null {
@@ -31,9 +31,10 @@ export class SignupComponent {
   showPassword = false;
   showConfirmPassword = false;
   isLoading = false;
-  agreedToTerms = false;
+  successMessage = '';
+  errorMessage = '';
 
-  constructor(private fb: FormBuilder, private readonly authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private readonly authService: AuthService, private router: Router, private cdr: ChangeDetectorRef) {
     this.form = this.fb.group(
       {
         username:        ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^\S+$/)]],
@@ -63,7 +64,10 @@ export class SignupComponent {
   }
 
   onSubmit(): void {
-    if (this.form.invalid || !this.agreedToTerms) {
+    this.successMessage = '';
+    this.errorMessage = '';
+
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
@@ -71,13 +75,17 @@ export class SignupComponent {
     const { confirmPassword, ...signupData } = this.form.value;
 
     this.authService.signup(signupData).subscribe({
-      next: () => {
-        this.isLoading = false;
-        this.router.navigate(['/login']);
+      next: (res: any) => {
+        this.isLoading = false; 
+        this.router.navigate(['/login'], {
+          state: { successMessage: res.savedUserSuccess || 'Account created successfully! Please log in' }
+        });
       },
       error: (error) => {
         this.isLoading = false;
-        console.log(error.error.message || 'Signup failed');
+        this.errorMessage = error.error.message || 'Signup Failed. Please Try Again';
+        this.cdr.detectChanges();
+        console.log(error);
       }
     });
   }
