@@ -1,44 +1,45 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslocoModule } from '@jsverse/transloco';
 
 export interface Stat {
   value: string;
-  label: string;
+  labelKey: string;
 }
 
 export interface Testimonial {
   initials: string;
-  quote: string;
-  name: string;
-  location: string;
+  quoteKey: string;
+  nameKey: string;
+  locationKey: string;
 }
 
 @Component({
   selector: 'app-social-proof',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './social-proof.component.html',
   styleUrls: ['./social-proof.component.scss'],
 })
 export class SocialProofComponent {
   stats: Stat[] = [
-    { value: '2,400+', label: 'Active users' },
-    { value: '¥4.2B',  label: 'Expenses tracked' },
-    { value: '38',     label: 'Countries represented' },
+    { value: '2,400+', labelKey: 'socialProof.activeUsersLabel' },
+    { value: '¥4.2B',  labelKey: 'socialProof.trackedLabel' },
+    { value: '38',     labelKey: 'socialProof.countriesLabel' },
   ];
 
   testimonials: Testimonial[] = [
     {
       initials: 'MR',
-      quote: 'Finally an app that doesn\'t make managing money in Japan a headache. I use it every single day.',
-      name: 'Marco R.',
-      location: 'Italian · Osaka',
+      quoteKey: 'socialProof.testimonial1Quote',
+      nameKey: 'socialProof.testimonial1Name',
+      locationKey: 'socialProof.testimonial1Location',
     },
     {
       initials: 'SL',
-      quote: 'Helped me realize I was overspending on convenience stores by ¥20k a month. Game changer.',
-      name: 'Sara L.',
-      location: 'Canadian · Tokyo',
+      quoteKey: 'socialProof.testimonial2Quote',
+      nameKey: 'socialProof.testimonial2Name',
+      locationKey: 'socialProof.testimonial2Location',
     },
   ];
 }

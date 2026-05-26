@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslocoModule } from '@jsverse/transloco';
 
 export interface Step {
   number: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descKey: string;
 }
 
 export interface Feature {
   icon: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descKey: string;
 }
 
 @Component({
   selector: 'app-how-it-works',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, RouterLink],
+  imports: [CommonModule, DecimalPipe, RouterLink, TranslocoModule],
   templateUrl: './how-it-works.component.html',
   styleUrls: ['./how-it-works.component.scss'],
 })
@@ -25,71 +26,71 @@ export class HowItWorksComponent {
   steps: Step[] = [
     {
       number: '01',
-      title: 'Create your account',
-      description: 'Sign up with a username, email, and password. Free forever — no credit card required.',
+      titleKey: 'howItWorks.step1Title',
+      descKey: 'howItWorks.step1Desc',
     },
     {
       number: '02',
-      title: 'Set your monthly budget',
-      description: 'Enter your income and spending limits in yen. Expenss tracks your pace in real time.',
+      titleKey: 'howItWorks.step2Title',
+      descKey: 'howItWorks.step2Desc',
     },
     {
       number: '03',
-      title: 'Log every expense',
-      description: 'Add expenses in seconds. Just the amount and category — your dashboard updates instantly.',
+      titleKey: 'howItWorks.step3Title',
+      descKey: 'howItWorks.step3Desc',
     },
     {
       number: '04',
-      title: 'Review and improve',
-      description: 'Compare months, spot patterns, and make smarter decisions about your spending.',
+      titleKey: 'howItWorks.step4Title',
+      descKey: 'howItWorks.step4Desc',
     },
   ];
 
   mockBars = [
-    { height: 55, label: 'Jan', active: false },
-    { height: 72, label: 'Feb', active: false },
-    { height: 68, label: 'Mar', active: false },
-    { height: 48, label: 'Apr', active: false },
-    { height: 62, label: 'May', active: true  },
+    { height: 55, labelKey: 'howItWorks.jan', active: false },
+    { height: 72, labelKey: 'howItWorks.feb', active: false },
+    { height: 68, labelKey: 'howItWorks.mar', active: false },
+    { height: 48, labelKey: 'howItWorks.apr', active: false },
+    { height: 62, labelKey: 'howItWorks.may', active: true  },
   ];
 
   mockTx = [
-    { name: 'Monthly rent',    amount: -65000 },
-    { name: 'Grocery run',     amount: -4280  },
-    { name: 'Osaka Metro',     amount: -980   },
-    { name: 'Part-time pay',   amount: 85000  },
+    { nameKey: 'howItWorks.monthlyRent',  amount: -65000 },
+    { nameKey: 'howItWorks.groceryRun',   amount: -4280  },
+    { nameKey: 'howItWorks.osakaMetro',   amount: -980   },
+    { nameKey: 'howItWorks.partTimePay',  amount: 85000  },
   ];
 
   features: Feature[] = [
     {
       icon: 'chart',
-      title: 'Spending breakdown by category',
-      description: 'Rent, food, transport, subscriptions — see exactly where every yen goes at a glance.',
+      titleKey: 'howItWorks.feature1Title',
+      descKey: 'howItWorks.feature1Desc',
     },
     {
       icon: 'target',
-      title: 'Monthly budget tracking',
-      description: 'Set a budget goal and track your pace so you never overshoot the month.',
+      titleKey: 'howItWorks.feature2Title',
+      descKey: 'howItWorks.feature2Desc',
     },
     {
       icon: 'receipt',
-      title: 'Quick expense logging',
-      description: 'Add any expense in seconds. Amount and category — that\'s all it takes.',
+      titleKey: 'howItWorks.feature3Title',
+      descKey: 'howItWorks.feature3Desc',
     },
     {
       icon: 'analytics',
-      title: 'Monthly reports',
-      description: 'Compare spending month to month and catch patterns before they become problems.',
+      titleKey: 'howItWorks.feature4Title',
+      descKey: 'howItWorks.feature4Desc',
     },
     {
       icon: 'currency',
-      title: 'Yen-first tracking',
-      description: 'Log in JPY natively. No awkward conversions, no rounding confusion.',
+      titleKey: 'howItWorks.feature5Title',
+      descKey: 'howItWorks.feature5Desc',
     },
     {
       icon: 'bell',
-      title: 'Budget alerts',
-      description: 'Get notified when you\'re approaching your limit — before you cross it.',
+      titleKey: 'howItWorks.feature6Title',
+      descKey: 'howItWorks.feature6Desc',
     },
   ];
 }

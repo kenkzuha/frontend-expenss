@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutComponent } from '../../home/components/authlayout/authlayout.component';
+import { AuthService } from '../auth.service';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, AuthLayoutComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, AuthLayoutComponent, TranslocoModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -16,7 +18,9 @@ export class LoginComponent {
   showPassword = false;
   isLoading = false;
   successMessage = '';
-
+  errorMessage = '';
+  private authService = inject(AuthService);
+  private cdr = inject(ChangeDetectorRef);
   constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
@@ -39,6 +43,16 @@ export class LoginComponent {
       return;
     }
     this.isLoading = true;
-    console.log('Login payload:', this.form.value);
+    this.authService.login(this.form.value).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.router.navigate(['dashboard']);
+      },
+      error: (error) => {
+        this.isLoading = false;
+        this.errorMessage = error.error.message || "Something went wrong";
+        this.cdr.detectChanges();
+      }
+    })
   }
 }

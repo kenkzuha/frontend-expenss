@@ -1,9 +1,8 @@
 <section class="features">
-  <div class="section-label">Features</div>
-  <h2 class="section-heading">Everything you need,<br />nothing you don't.</h2>
+  <div class="section-label">{{ 'features.sectionLabel' | transloco }}</div>
+  <h2 class="section-heading">{{ 'features.heading' | transloco }}<br />{{ 'features.headingLine2' | transloco }}</h2>
   <p class="section-body">
-    Designed for the real challenges of managing money abroad —
-    currency, receipts, budgets, and more.
+    {{ 'features.description' | transloco }}
   </p>
 
   <div class="features-grid">
@@ -16,8 +15,8 @@
           <svg *ngSwitchCase="'receipt'" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8H8M16 12H8M12 16H8"/></svg>
         </ng-container>
       </div>
-      <div class="feat-title">{{ feat.title }}</div>
-      <div class="feat-desc">{{ feat.description }}</div>
+      <div class="feat-title">{{ feat.titleKey | transloco }}</div>
+      <div class="feat-desc">{{ feat.descKey | transloco }}</div>
     </div>
   </div>
 </section>

@@ -6,34 +6,31 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M19 12H5M12 5l-7 7 7 7"/>
       </svg>
-      Back to home
+      {{ 'howItWorks.backToHome' | transloco }}
     </a>
   </nav>
 
   <div class="hiw-content">
 
     <header class="hiw-header">
-      <div class="hiw-label">How it works</div>
-      <h1>Simple by design.</h1>
-      <p>
-        Managing money in Japan as a foreigner is already complicated enough.
-        Expenss keeps it straightforward — log, track, understand.
-      </p>
+      <div class="hiw-label">{{ 'howItWorks.label' | transloco }}</div>
+      <h1>{{ 'howItWorks.heading' | transloco }}</h1>
+      <p>{{ 'howItWorks.description' | transloco }}</p>
     </header>
 
     <section class="steps-section">
       <div class="steps-grid">
         <div *ngFor="let step of steps" class="step-card">
           <div class="step-number">{{ step.number }}</div>
-          <div class="step-title">{{ step.title }}</div>
-          <div class="step-desc">{{ step.description }}</div>
+          <div class="step-title">{{ step.titleKey | transloco }}</div>
+          <div class="step-desc">{{ step.descKey | transloco }}</div>
         </div>
       </div>
     </section>
 
     <section class="features-section">
-      <div class="section-label">What you get</div>
-      <h2 class="section-heading">Everything you need to stay in control.</h2>
+      <div class="section-label">{{ 'howItWorks.whatYouGet' | transloco }}</div>
+      <h2 class="section-heading">{{ 'howItWorks.featuresHeading' | transloco }}</h2>
 
       <div class="features-grid">
         <div *ngFor="let feat of features" class="feat-card">
@@ -47,15 +44,15 @@
               <svg *ngSwitchCase="'bell'" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             </ng-container>
           </div>
-          <div class="feat-title">{{ feat.title }}</div>
-          <div class="feat-desc">{{ feat.description }}</div>
+          <div class="feat-title">{{ feat.titleKey | transloco }}</div>
+          <div class="feat-desc">{{ feat.descKey | transloco }}</div>
         </div>
       </div>
     </section>
 
     <section class="preview-section">
-      <div class="section-label">Dashboard preview</div>
-      <h2 class="section-heading">What it looks like inside.</h2>
+      <div class="section-label">{{ 'howItWorks.dashboardPreview' | transloco }}</div>
+      <h2 class="section-heading">{{ 'howItWorks.previewHeading' | transloco }}</h2>
       <div class="mock-frame">
         <div class="mock-topbar">
           <span class="dot dot--red"></span>
@@ -64,33 +61,33 @@
         </div>
         <div class="mock-body">
           <div class="mock-header">
-            <span class="mock-title">May overview</span>
-            <span class="mock-badge">Under budget</span>
+            <span class="mock-title">{{ 'howItWorks.mayOverview' | transloco }}</span>
+            <span class="mock-badge">{{ 'howItWorks.underBudget' | transloco }}</span>
           </div>
           <div class="mock-stats">
             <div class="mock-stat">
-              <div class="mock-stat-label">Spent</div>
+              <div class="mock-stat-label">{{ 'howItWorks.spent' | transloco }}</div>
               <div class="mock-stat-val">¥138,400</div>
             </div>
             <div class="mock-stat">
-              <div class="mock-stat-label">Remaining</div>
+              <div class="mock-stat-label">{{ 'howItWorks.remaining' | transloco }}</div>
               <div class="mock-stat-val mock-stat-val--accent">¥61,600</div>
             </div>
             <div class="mock-stat">
-              <div class="mock-stat-label">Daily avg</div>
+              <div class="mock-stat-label">{{ 'howItWorks.dailyAvg' | transloco }}</div>
               <div class="mock-stat-val">¥5,537</div>
             </div>
           </div>
           <div class="mock-bars">
             <div class="mock-bar-col" *ngFor="let bar of mockBars">
               <div class="mock-bar" [style.height.%]="bar.height" [class.mock-bar--active]="bar.active"></div>
-              <div class="mock-bar-label">{{ bar.label }}</div>
+              <div class="mock-bar-label">{{ bar.labelKey | transloco }}</div>
             </div>
           </div>
           <div class="mock-tx-list">
             <div class="mock-tx" *ngFor="let tx of mockTx">
               <div class="mock-tx-dot"></div>
-              <div class="mock-tx-name">{{ tx.name }}</div>
+              <div class="mock-tx-name">{{ tx.nameKey | transloco }}</div>
               <div class="mock-tx-amt" [class.neg]="tx.amount < 0" [class.pos]="tx.amount > 0">
                 {{ tx.amount < 0 ? '−' : '+' }}¥{{ (tx.amount < 0 ? -tx.amount : tx.amount) | number }}
               </div>
@@ -101,11 +98,11 @@
     </section>
 
     <section class="cta-section">
-      <h2>Ready to get started?</h2>
-      <p>Takes less than a minute to set up.</p>
+      <h2>{{ 'howItWorks.ctaHeading' | transloco }}</h2>
+      <p>{{ 'howItWorks.ctaDescription' | transloco }}</p>
       <div class="cta-actions">
-        <a class="btn-primary" routerLink="/signup">Create free account</a>
-        <a class="btn-ghost" routerLink="/login">Sign in</a>
+        <a class="btn-primary" routerLink="/signup">{{ 'howItWorks.createFreeAccount' | transloco }}</a>
+        <a class="btn-ghost" routerLink="/login">{{ 'howItWorks.signIn' | transloco }}</a>
       </div>
     </section>
 

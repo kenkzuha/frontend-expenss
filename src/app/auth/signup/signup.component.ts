@@ -1,9 +1,10 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 import { AuthLayoutComponent } from '../../home/components/authlayout/authlayout.component';
 import { AuthService } from '../auth.service';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 function passwordStrength(control: AbstractControl): ValidationErrors | null {
   const val: string = control.value ?? '';
@@ -22,7 +23,7 @@ function passwordsMatch(group: AbstractControl): ValidationErrors | null {
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, AuthLayoutComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, AuthLayoutComponent, TranslocoModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
@@ -33,6 +34,7 @@ export class SignupComponent {
   isLoading = false;
   successMessage = '';
   errorMessage = '';
+  private translocoService = inject(TranslocoService);
 
   constructor(private fb: FormBuilder, private readonly authService: AuthService, private router: Router, private cdr: ChangeDetectorRef) {
     this.form = this.fb.group(
@@ -59,6 +61,12 @@ export class SignupComponent {
     return score >= 2 ? 'strong' : 'medium';
   }
 
+  get passwordStrengthLabel(): string {
+    const level = this.passwordStrengthLevel;
+    const key = level === 'weak' ? 'signup.strengthWeak' : level === 'medium' ? 'signup.strengthMedium' : 'signup.strengthStrong';
+    return this.translocoService.translate(key);
+  }
+
   get passwordMismatch(): boolean {
     return this.form.hasError('mismatch') && this.confirmPassword.touched;
   }
@@ -78,14 +86,13 @@ export class SignupComponent {
       next: (res: any) => {
         this.isLoading = false; 
         this.router.navigate(['/login'], {
-          state: { successMessage: res.savedUserSuccess || 'Account created successfully! Please log in' }
+          state: { successMessage: res.savedUserSuccess || this.translocoService.translate('signup.accountCreated') }
         });
       },
       error: (error) => {
         this.isLoading = false;
-        this.errorMessage = error.error.message || 'Signup Failed. Please Try Again';
+        this.errorMessage = error.error.message || this.translocoService.translate('signup.signupFailed');
         this.cdr.detectChanges();
-        console.log(error);
       }
     });
   }

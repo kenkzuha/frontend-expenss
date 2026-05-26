@@ -12,7 +12,20 @@
   </a>
 
   <div class="nav-right">
-    <button class="btn-ghost" routerLink="/login">Sign in</button>
-    <button class="btn-solid" routerLink="/signup">Get started</button>
+    <div class="lang-switcher" (click)="toggleLangMenu()">
+      <button class="lang-btn" type="button">
+        <span class="lang-flag">{{ currentFlag }}</span>
+        <span class="lang-code">{{ currentLang.toUpperCase() }}</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-dropdown" *ngIf="langOpen">
+        <button *ngFor="let lang of languages" class="lang-option" [class.active]="lang.code === currentLang" (click)="switchLang(lang.code)" type="button">
+          <span class="lang-flag">{{ lang.flag }}</span>
+          <span>{{ lang.label }}</span>
+        </button>
+      </div>
+    </div>
+    <button class="btn-ghost" routerLink="/login">{{ 'navbar.signIn' | transloco }}</button>
+    <button class="btn-solid" routerLink="/signup">{{ 'navbar.getStarted' | transloco }}</button>
   </div>
 </nav>

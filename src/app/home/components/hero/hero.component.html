@@ -2,24 +2,21 @@
   <div class="hero-logo">Expen<em>ss</em></div>
 
   <h1>
-    Your finances,<br />
-    <span class="muted">finally under control.</span>
+    {{ 'hero.title' | transloco }}<br />
+    <span class="muted">{{ 'hero.titleMuted' | transloco }}</span>
   </h1>
 
-  <p>
-    Expenss helps you track every yen, manage your budget, and understand
-    where your money actually goes — no confusion, no clutter.
-  </p>
+  <p>{{ 'hero.description' | transloco }}</p>
 
   <div class="actions">
     <a class="btn-primary" routerLink="/signup">
-      Start for free
+      {{ 'hero.startForFree' | transloco }}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </a>
-    <a class="btn-ghost" routerLink="/how-it-works">See how it works</a>
+    <a class="btn-ghost" routerLink="/how-it-works">{{ 'hero.seeHowItWorks' | transloco }}</a>
   </div>
 
-  <p class="hero-note">No credit card required · Free plan available</p>
+  <p class="hero-note">{{ 'hero.note' | transloco }}</p>
 </section>

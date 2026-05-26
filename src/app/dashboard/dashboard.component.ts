@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [TranslocoModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })

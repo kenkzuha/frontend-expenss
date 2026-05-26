@@ -9,21 +9,21 @@
 
     <div class="preview-content">
       <div class="preview-header">
-        <span class="preview-title">May overview</span>
-        <span class="preview-sub">¥200,000 budget</span>
+        <span class="preview-title">{{ 'appPreview.mayOverview' | transloco }}</span>
+        <span class="preview-sub">{{ 'appPreview.budget' | transloco }}</span>
       </div>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-label">Spent</div>
+          <div class="stat-label">{{ 'appPreview.spent' | transloco }}</div>
           <div class="stat-value">¥138k</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Remaining</div>
+          <div class="stat-label">{{ 'appPreview.remaining' | transloco }}</div>
           <div class="stat-value stat-value--accent">¥62k</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Saved</div>
+          <div class="stat-label">{{ 'appPreview.saved' | transloco }}</div>
           <div class="stat-value stat-value--green">+¥18k</div>
         </div>
       </div>
@@ -42,8 +42,8 @@
             </ng-container>
           </div>
           <div class="tx-info">
-            <div class="tx-name">{{ tx.name }}</div>
-            <div class="tx-cat">{{ tx.category }}</div>
+            <div class="tx-name">{{ tx.nameKey | transloco }}</div>
+            <div class="tx-cat">{{ tx.categoryKey | transloco }}</div>
           </div>
           <div
             class="tx-amount"

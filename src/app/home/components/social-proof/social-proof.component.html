@@ -2,18 +2,18 @@
   <div class="sp-nums">
     <div *ngFor="let stat of stats" class="sp-num">
       <div class="sp-val">{{ stat.value }}</div>
-      <div class="sp-label">{{ stat.label }}</div>
+      <div class="sp-label">{{ stat.labelKey | transloco }}</div>
     </div>
   </div>
 
   <div class="testimonials">
     <div *ngFor="let t of testimonials" class="testi">
-      <p class="testi-text">"{{ t.quote }}"</p>
+      <p class="testi-text">"{{ t.quoteKey | transloco }}"</p>
       <div class="testi-author">
         <div class="testi-avatar">{{ t.initials }}</div>
         <div>
-          <div class="testi-name">{{ t.name }}</div>
-          <div class="testi-loc">{{ t.location }}</div>
+          <div class="testi-name">{{ t.nameKey | transloco }}</div>
+          <div class="testi-loc">{{ t.locationKey | transloco }}</div>
         </div>
       </div>
     </div>
