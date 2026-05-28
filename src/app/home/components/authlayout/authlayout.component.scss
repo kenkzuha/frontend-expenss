@@ -13,18 +13,6 @@
   border-bottom: 0.5px solid var(--border);
 }
 
-.logo {
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.4px;
-  color: var(--text);
-  text-decoration: none;
-
-  span {
-    color: var(--accent);
-  }
-}
-
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -45,4 +33,33 @@
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg { display: block; }
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: var(--text);
+  line-height: 1;
+
+  em {
+    font-style: normal;
+    color: var(--accent);
+  }
 }

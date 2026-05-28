@@ -6,10 +6,9 @@
   "hero": {
     "title": "Keuangan Anda,",
     "titleMuted": "akhirnya terkendali.",
-    "description": "Expenss membantu Anda melacak setiap yen, mengelola anggaran, dan memahami ke mana uang Anda sebenarnya pergi — tanpa kebingungan, tanpa kekacauan.",
+    "description": "Expenss membantu Anda melacak setiap uang, mengelola anggaran, dan memahami ke mana uang Anda sebenarnya pergi — tanpa kebingungan, tanpa kekacauan.",
     "startForFree": "Mulai gratis",
-    "seeHowItWorks": "Lihat cara kerjanya",
-    "note": "Tidak perlu kartu kredit · Paket gratis tersedia"
+    "seeHowItWorks": "Lihat cara kerjanya"
   },
   "appPreview": {
     "mayOverview": "Ringkasan Mei",
@@ -97,6 +96,7 @@
     "passwordPlaceholder": "Min. 8 karakter",
     "passwordRequired": "Kata sandi wajib diisi.",
     "passwordMinLength": "Minimal 8 karakter.",
+    "passwordWeak": "Harus mengandung setidaknya satu huruf besar dan satu angka.",
     "strengthWeak": "lemah",
     "strengthMedium": "sedang",
     "strengthStrong": "kuat",
@@ -116,7 +116,11 @@
     "showPassword": "Tampilkan kata sandi",
     "hidePassword": "Sembunyikan kata sandi",
     "signupFailed": "Pendaftaran gagal. Silakan coba lagi.",
-    "accountCreated": "Akun berhasil dibuat! Silakan masuk"
+    "accountCreated": "Akun berhasil dibuat! Silakan masuk",
+    "checkEmailTitle": "Periksa email Anda",
+    "checkEmailDesc": "Kami telah mengirimkan tautan verifikasi ke alamat email Anda. Klik untuk mengaktifkan akun Anda.",
+    "checkEmailHint": "Tidak menerima email? Periksa folder spam Anda.",
+    "backToLogin": "Kembali ke Masuk"
   },
   "howItWorks": {
     "backToHome": "Kembali ke beranda",
@@ -168,6 +172,23 @@
   },
   "dashboard": {
     "placeholder": "dashboard berfungsi!"
+  },
+  "errors": {
+    "invalidCredentials": "Nama pengguna atau kata sandi salah.",
+    "emailNotVerified": "Harap verifikasi email Anda sebelum masuk.",
+    "usernameTaken": "Nama pengguna sudah digunakan.",
+    "emailTaken": "Email sudah digunakan.",
+    "linkExpired": "Tautan verifikasi sudah digunakan atau kedaluwarsa.",
+    "linkInvalid": "Tautan verifikasi tidak valid atau kedaluwarsa.",
+    "unexpected": "Terjadi kesalahan. Silakan coba lagi."
+  },
+  "verifyEmail": {
+    "verifying": "Memverifikasi email Anda...",
+    "successTitle": "Email Terverifikasi!",
+    "successDesc": "Akun Anda siap. Anda sekarang dapat masuk.",
+    "goToLogin": "Ke Halaman Masuk",
+    "failedTitle": "Verifikasi Gagal",
+    "backToSignup": "Kembali ke Pendaftaran"
   },
   "lang": {
     "en": "EN",

@@ -4,7 +4,8 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutComponent } from '../../home/components/authlayout/authlayout.component';
 import { AuthService } from '../auth.service';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { getErrorKey } from '../auth-error.util';
 
 @Component({
   selector: 'app-login',
@@ -21,17 +22,12 @@ export class LoginComponent {
   errorMessage = '';
   private authService = inject(AuthService);
   private cdr = inject(ChangeDetectorRef);
+  private transloco = inject(TranslocoService);
   constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required]],
     });
-    const navigation = this.router.getCurrentNavigation();
-    if(navigation?.extras.state){
-      this.successMessage = navigation.extras.state[
-        'successMessage' 
-      ] || '';
-    }
   }
 
   get username() { return this.form.get('username')!; }
@@ -50,7 +46,7 @@ export class LoginComponent {
       },
       error: (error) => {
         this.isLoading = false;
-        this.errorMessage = error.error.message || "Something went wrong";
+        this.errorMessage = this.transloco.translate(getErrorKey(error.error?.message));
         this.cdr.detectChanges();
       }
     })

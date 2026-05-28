@@ -1,5 +1,15 @@
 <app-auth-layout>
   <div class="auth-card">
+
+    <div *ngIf="successMessage" class="email-sent-state">
+      <div class="email-icon">✉️</div>
+      <h2 class="auth-title">{{ 'signup.checkEmailTitle' | transloco }}</h2>
+      <p class="auth-sub">{{ 'signup.checkEmailDesc' | transloco }}</p>
+      <p class="email-hint">{{ 'signup.checkEmailHint' | transloco }}</p>
+      <a routerLink="/login" class="btn-secondary-link">{{ 'signup.backToLogin' | transloco }}</a>
+    </div>
+
+    <ng-container *ngIf="!successMessage">
     <h1 class="auth-title">{{ 'signup.title' | transloco }}</h1>
     <p class="auth-sub">{{ 'signup.subtitle' | transloco }}</p>
     <div class="alert alert-error" *ngIf="errorMessage">
@@ -81,15 +91,26 @@
 
         <div class="strength-wrap" *ngIf="password.value?.length > 0">
           <div class="strength-bars">
-            <div class="strength-bar" [class.active]="passwordStrengthLevel === 'weak' || passwordStrengthLevel === 'medium' || passwordStrengthLevel === 'strong'" [class.color-weak]="passwordStrengthLevel === 'weak'"></div>
-            <div class="strength-bar" [class.active]="passwordStrengthLevel === 'medium' || passwordStrengthLevel === 'strong'" [class.color-medium]="passwordStrengthLevel === 'medium'"></div>
-            <div class="strength-bar" [class.active]="passwordStrengthLevel === 'strong'" [class.color-strong]="passwordStrengthLevel === 'strong'"></div>
+            <div class="strength-bar"
+                 [class.active]="true"
+                 [class.color-weak]="passwordStrengthLevel === 'weak'"
+                 [class.color-medium]="passwordStrengthLevel === 'medium'"
+                 [class.color-strong]="passwordStrengthLevel === 'strong'"></div>
+            <div class="strength-bar"
+                 [class.active]="passwordStrengthLevel === 'medium' || passwordStrengthLevel === 'strong'"
+                 [class.color-medium]="passwordStrengthLevel === 'medium'"
+                 [class.color-strong]="passwordStrengthLevel === 'strong'"></div>
+            <div class="strength-bar"
+                 [class.active]="passwordStrengthLevel === 'strong'"
+                 [class.color-strong]="passwordStrengthLevel === 'strong'"></div>
           </div>
           <span class="strength-label" [class]="'label-' + passwordStrengthLevel">{{ passwordStrengthLabel }}</span>
         </div>
 
         <span class="field-error" *ngIf="password.invalid && password.touched">
-          {{ password.errors?.['required'] ? ('signup.passwordRequired' | transloco) : ('signup.passwordMinLength' | transloco) }}
+          <ng-container *ngIf="password.errors?.['required']">{{ 'signup.passwordRequired' | transloco }}</ng-container>
+          <ng-container *ngIf="password.errors?.['minlength']">{{ 'signup.passwordMinLength' | transloco }}</ng-container>
+          <ng-container *ngIf="password.errors?.['weak']">{{ 'signup.passwordWeak' | transloco }}</ng-container>
         </span>
       </div>
 
@@ -152,5 +173,7 @@
       {{ 'signup.hasAccount' | transloco }}
       <a routerLink="/login">{{ 'signup.signIn' | transloco }}</a>
     </p>
+    </ng-container>
+
   </div>
 </app-auth-layout>

@@ -7,6 +7,10 @@ import { authInterceptor } from './auth/auth.interceptor';
 import { provideTransloco } from '@jsverse/transloco';
 import { TranslocoHttpLoader } from './transloco-loader';
 
+const AVAILABLE_LANGS = ['en', 'ja', 'id'];
+const savedLang = localStorage.getItem('lang');
+const initialLang = savedLang && AVAILABLE_LANGS.includes(savedLang) ? savedLang : 'en';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -14,8 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([authInterceptor])),
     provideTransloco({
       config: {
-        availableLangs: ['en', 'ja', 'id'],
-        defaultLang: 'en',
+        availableLangs: AVAILABLE_LANGS,
+        defaultLang: initialLang,
         fallbackLang: 'en',
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),

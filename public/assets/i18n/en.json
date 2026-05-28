@@ -6,10 +6,9 @@
   "hero": {
     "title": "Your finances,",
     "titleMuted": "finally under control.",
-    "description": "Expenss helps you track every yen, manage your budget, and understand where your money actually goes — no confusion, no clutter.",
+    "description": "Expenss helps you track every money, manage your budget, and understand where your money actually goes — no confusion, no clutter.",
     "startForFree": "Start for free",
-    "seeHowItWorks": "See how it works",
-    "note": "No credit card required · Free plan available"
+    "seeHowItWorks": "See how it works"
   },
   "appPreview": {
     "mayOverview": "May overview",
@@ -97,6 +96,7 @@
     "passwordPlaceholder": "Min. 8 characters",
     "passwordRequired": "Password is required.",
     "passwordMinLength": "At least 8 characters.",
+    "passwordWeak": "Must contain at least one uppercase letter and one number.",
     "strengthWeak": "weak",
     "strengthMedium": "medium",
     "strengthStrong": "strong",
@@ -115,8 +115,12 @@
     "signIn": "Sign in",
     "showPassword": "Show password",
     "hidePassword": "Hide password",
-    "signupFailed": "Signup Failed. Please Try Again",
-    "accountCreated": "Account created successfully! Please log in"
+    "signupFailed": "Unexpected error occured",
+    "accountCreated": "Account created successfully! Please log in",
+    "checkEmailTitle": "Check your email",
+    "checkEmailDesc": "We sent a verification link to your email address. Click it to activate your account.",
+    "checkEmailHint": "Didn't receive it? Check your spam folder.",
+    "backToLogin": "Back to Login"
   },
   "howItWorks": {
     "backToHome": "Back to home",
@@ -168,6 +172,23 @@
   },
   "dashboard": {
     "placeholder": "dashboard works!"
+  },
+  "errors": {
+    "invalidCredentials": "Invalid username or password.",
+    "emailNotVerified": "Please verify your email before logging in.",
+    "usernameTaken": "Username is already taken.",
+    "emailTaken": "Email is already taken.",
+    "linkExpired": "Verification link has already been used or expired.",
+    "linkInvalid": "Invalid or expired verification link.",
+    "unexpected": "Something went wrong. Please try again."
+  },
+  "verifyEmail": {
+    "verifying": "Verifying your email...",
+    "successTitle": "Email Verified!",
+    "successDesc": "Your account is ready. You can now log in.",
+    "goToLogin": "Go to Login",
+    "failedTitle": "Verification Failed",
+    "backToSignup": "Back to Signup"
   },
   "lang": {
     "en": "EN",

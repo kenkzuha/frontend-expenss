@@ -8,8 +8,7 @@
     "titleMuted": "もう迷わない。",
     "description": "Expenssは毎日の支出を記録し、予算を管理し、お金の流れを把握するお手伝いをします — シンプルで分かりやすく。",
     "startForFree": "無料で始める",
-    "seeHowItWorks": "使い方を見る",
-    "note": "クレジットカード不要 · 無料プランあり"
+    "seeHowItWorks": "使い方を見る"
   },
   "appPreview": {
     "mayOverview": "5月の概要",
@@ -97,6 +96,7 @@
     "passwordPlaceholder": "8文字以上",
     "passwordRequired": "パスワードは必須です。",
     "passwordMinLength": "8文字以上入力してください。",
+    "passwordWeak": "大文字と数字をそれぞれ1文字以上含める必要があります。",
     "strengthWeak": "弱い",
     "strengthMedium": "普通",
     "strengthStrong": "強い",
@@ -116,7 +116,11 @@
     "showPassword": "パスワードを表示",
     "hidePassword": "パスワードを隠す",
     "signupFailed": "登録に失敗しました。もう一度お試しください。",
-    "accountCreated": "アカウントが作成されました！ログインしてください"
+    "accountCreated": "アカウントが作成されました！ログインしてください",
+    "checkEmailTitle": "メールをご確認ください",
+    "checkEmailDesc": "確認リンクをメールアドレスに送信しました。リンクをクリックしてアカウントを有効化してください。",
+    "checkEmailHint": "届いていませんか？迷惑メールフォルダをご確認ください。",
+    "backToLogin": "ログインに戻る"
   },
   "howItWorks": {
     "backToHome": "ホームに戻る",
@@ -168,6 +172,23 @@
   },
   "dashboard": {
     "placeholder": "ダッシュボード動作中！"
+  },
+  "errors": {
+    "invalidCredentials": "ユーザー名またはパスワードが正しくありません。",
+    "emailNotVerified": "ログインする前にメールアドレスを確認してください。",
+    "usernameTaken": "このユーザー名はすでに使用されています。",
+    "emailTaken": "このメールアドレスはすでに使用されています。",
+    "linkExpired": "認証リンクはすでに使用済みか期限切れです。",
+    "linkInvalid": "無効または期限切れの認証リンクです。",
+    "unexpected": "エラーが発生しました。もう一度お試しください。"
+  },
+  "verifyEmail": {
+    "verifying": "メールアドレスを確認中...",
+    "successTitle": "メール確認完了！",
+    "successDesc": "アカウントの準備ができました。ログインしてください。",
+    "goToLogin": "ログインへ",
+    "failedTitle": "確認に失敗しました",
+    "backToSignup": "新規登録へ戻る"
   },
   "lang": {
     "en": "EN",

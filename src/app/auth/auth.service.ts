@@ -24,4 +24,8 @@ export class AuthService {
   checkAuth(){
     return this.http.get(`${this.apiUrl}/me`);
   }
+
+  verifyEmail(token: string) {
+    return this.http.get(`${this.apiUrl}/verify-email`, { params: { token } });
+  }
 }

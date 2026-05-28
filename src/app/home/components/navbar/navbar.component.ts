@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
@@ -12,26 +12,32 @@ import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 })
 export class NavbarComponent {
   private translocoService = inject(TranslocoService);
+  private elementRef = inject(ElementRef);
   currentLang = this.translocoService.getActiveLang();
   langOpen = false;
 
   languages = [
-    { code: 'en', flag: '🇺🇸', label: 'EN' },
-    { code: 'ja', flag: '🇯🇵', label: 'JA' },
-    { code: 'id', flag: '🇮🇩', label: 'ID' },
+    { code: 'en', label: 'English' },
+    { code: 'ja', label: '日本語' },
+    { code: 'id', label: 'Indonesian' },
   ];
-
-  get currentFlag(): string {
-    return this.languages.find(l => l.code === this.currentLang)?.flag || '🇺🇸';
-  }
 
   switchLang(code: string): void {
     this.translocoService.setActiveLang(code);
     this.currentLang = code;
     this.langOpen = false;
+    localStorage.setItem('lang', code);
   }
 
   toggleLangMenu(): void {
     this.langOpen = !this.langOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (target && !this.elementRef.nativeElement.querySelector('.lang-switcher')?.contains(target)) {
+      this.langOpen = false;
+    }
   }
 }

@@ -12,15 +12,13 @@
   </a>
 
   <div class="nav-right">
-    <div class="lang-switcher" (click)="toggleLangMenu()">
-      <button class="lang-btn" type="button">
-        <span class="lang-flag">{{ currentFlag }}</span>
+    <div class="lang-switcher">
+      <button class="lang-btn" type="button" (click)="toggleLangMenu()">
         <span class="lang-code">{{ currentLang.toUpperCase() }}</span>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="lang-dropdown" *ngIf="langOpen">
         <button *ngFor="let lang of languages" class="lang-option" [class.active]="lang.code === currentLang" (click)="switchLang(lang.code)" type="button">
-          <span class="lang-flag">{{ lang.flag }}</span>
           <span>{{ lang.label }}</span>
         </button>
       </div>

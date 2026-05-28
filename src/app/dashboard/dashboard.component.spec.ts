@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideTranslocoTesting } from '../transloco-testing.provider';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -8,7 +9,10 @@ describe('Dashboard', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent]
+      imports: [DashboardComponent],
+      providers: [
+        provideTranslocoTesting()
+      ]
     })
     .compileComponents();
 

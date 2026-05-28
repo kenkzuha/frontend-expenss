@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractContro
 import { AuthLayoutComponent } from '../../home/components/authlayout/authlayout.component';
 import { AuthService } from '../auth.service';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { getErrorKey } from '../auth-error.util';
 
 function passwordStrength(control: AbstractControl): ValidationErrors | null {
   const val: string = control.value ?? '';
@@ -57,8 +58,14 @@ export class SignupComponent {
   get passwordStrengthLevel(): 'weak' | 'medium' | 'strong' {
     const val: string = this.password.value ?? '';
     if (val.length < 8) return 'weak';
-    const score = [/[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/].filter(r => r.test(val)).length;
-    return score >= 2 ? 'strong' : 'medium';
+    
+    const hasUpper = /[A-Z]/.test(val);
+    const hasDigit = /[0-9]/.test(val);
+    
+    if (hasUpper && hasDigit) {
+      return 'strong';
+    }
+    return 'medium';
   }
 
   get passwordStrengthLabel(): string {
@@ -84,14 +91,14 @@ export class SignupComponent {
 
     this.authService.signup(signupData).subscribe({
       next: (res: any) => {
-        this.isLoading = false; 
-        this.router.navigate(['/login'], {
-          state: { successMessage: res.savedUserSuccess || this.translocoService.translate('signup.accountCreated') }
-        });
+        this.isLoading = false;
+        this.successMessage = res.message || this.translocoService.translate('signup.accountCreated');
+        this.form.reset();
+        this.cdr.detectChanges();
       },
       error: (error) => {
         this.isLoading = false;
-        this.errorMessage = error.error.message || this.translocoService.translate('signup.signupFailed');
+        this.errorMessage = this.translocoService.translate(getErrorKey(error.error?.message));
         this.cdr.detectChanges();
       }
     });
