@@ -1,0 +1,44 @@
+<app-auth-layout>
+  <div class="auth-card" *transloco="let t">
+
+    <!-- Loading -->
+    @if (status === 'loading') {
+      <div class="result-state">
+        <div class="loading-ring">
+          <div class="spinner"></div>
+        </div>
+        <h1 class="auth-title">{{ t('verifyEmail.verifying') }}</h1>
+        <p class="auth-sub">{{ t('verifyEmail.verifyingDesc') }}</p>
+      </div>
+    }
+
+    <!-- Success -->
+    @if (status === 'success') {
+      <div class="result-state">
+        <div class="result-icon result-icon--success">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"/>
+          </svg>
+        </div>
+        <h1 class="auth-title">{{ t('verifyEmail.successTitle') }}</h1>
+        <p class="auth-sub">{{ t('verifyEmail.successDesc') }}</p>
+        <a routerLink="/login" class="btn-primary">{{ t('verifyEmail.goToLogin') }}</a>
+      </div>
+    }
+
+    <!-- Error -->
+    @if (status === 'error') {
+      <div class="result-state">
+        <div class="result-icon result-icon--error">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </div>
+        <h1 class="auth-title">{{ t('verifyEmail.failedTitle') }}</h1>
+        <p class="auth-sub">{{ errorMessage }}</p>
+        <a routerLink="/signup" class="btn-secondary">{{ t('verifyEmail.backToSignup') }}</a>
+      </div>
+    }
+
+  </div>
+</app-auth-layout>

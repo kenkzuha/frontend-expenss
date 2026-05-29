@@ -28,4 +28,12 @@ export class AuthService {
   verifyEmail(token: string) {
     return this.http.get(`${this.apiUrl}/verify-email`, { params: { token } });
   }
+
+  forgotPassword(email: string) {
+    return this.http.post(`${this.apiUrl}/forgot-pass`, { email });
+  }
+
+  resetPassword(token: string, newPassword: string) {
+    return this.http.post(`${this.apiUrl}/reset-pass`, { token, newPassword });
+  }
 }

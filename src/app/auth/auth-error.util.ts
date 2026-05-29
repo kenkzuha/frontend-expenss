@@ -6,12 +6,12 @@ const errorKeyMap: Record<string, string> = {
   'Verification link already used or expired':         'errors.linkExpired',
   'Invalid or expired verification link':              'errors.linkInvalid',
   'Invalid token type':                                'errors.linkInvalid',
+  'Reset link already used or expired':                'errors.resetLinkExpired',
+  'Invalid or expired reset link':                     'errors.resetLinkInvalid',
+  'Email not found':                                   'errors.unexpected',
+  'Too many requests. Please wait before trying again': 'errors.tooManyRequests',
 };
 
-/**
- * Maps a backend error message string to a Transloco i18n key.
- * Falls back to 'errors.unexpected' for unknown messages.
- */
 export function getErrorKey(backendMessage?: string): string {
   if (!backendMessage) return 'errors.unexpected';
   return errorKeyMap[backendMessage] ?? 'errors.unexpected';

@@ -1,0 +1,115 @@
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+}
+
+.result-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.loading-ring {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2.5px solid var(--border2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  &--success {
+    background: var(--green-bg);
+    color: var(--green);
+  }
+
+  &--error {
+    background: rgba(226, 75, 74, 0.08);
+    color: #e24b4a;
+  }
+}
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.auth-sub {
+  font-size: 14px;
+  color: var(--text2);
+  font-weight: 300;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Geist', system-ui, sans-serif;
+  text-decoration: none;
+  min-height: 44px;
+  transition: opacity 0.15s;
+
+  &:hover { opacity: 0.88; }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 11px;
+  border: 0.5px solid var(--border2);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  min-height: 44px;
+  transition: border-color 0.15s, color 0.15s;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}

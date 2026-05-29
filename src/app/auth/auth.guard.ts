@@ -1,13 +1,13 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { map, catchError, of } from 'rxjs';
+import { AuthService } from './auth.service';
 
 export const authGuard: CanActivateFn = () => {
-  const http = inject(HttpClient);
+  const authService = inject(AuthService);
   const router = inject(Router);
 
-  return http.get('http://localhost:3000/auth/me', { withCredentials: true }).pipe(
+  return authService.checkAuth().pipe(
     map(() => true),
     catchError(() => {
       router.navigate(['/']);
@@ -15,3 +15,4 @@ export const authGuard: CanActivateFn = () => {
     })
   );
 };
+``
