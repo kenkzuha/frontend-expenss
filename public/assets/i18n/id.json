@@ -4,11 +4,13 @@
     "getStarted": "Mulai"
   },
   "hero": {
+    "badge": "Dibuat untuk kehidupan di Jepang",
     "title": "Keuangan Anda,",
     "titleMuted": "akhirnya terkendali.",
-    "description": "Expenss membantu Anda melacak setiap uang, mengelola anggaran, dan memahami ke mana uang Anda sebenarnya pergi — tanpa kebingungan, tanpa kekacauan.",
+    "description": "Expenss membantu Anda melacak setiap yen, mengelola anggaran bulanan, dan memahami ke mana uang Anda sebenarnya pergi — dirancang untuk kehidupan di Jepang.",
     "startForFree": "Mulai gratis",
-    "seeHowItWorks": "Lihat cara kerjanya"
+    "seeHowItWorks": "Lihat cara kerjanya",
+    "trustNote": "Gratis selamanya · Tidak perlu kartu kredit"
   },
   "appPreview": {
     "mayOverview": "Ringkasan Mei",
@@ -51,9 +53,11 @@
     "testimonial2Location": "Kanada · Tokyo"
   },
   "cta": {
+    "badge": "Mulai sekarang",
     "heading": "Mulai mencatat hari ini.",
     "description": "Gratis digunakan. Tanpa spreadsheet, tanpa ribet.",
-    "button": "Buat akun gratis"
+    "button": "Buat akun gratis",
+    "trust": "Gratis selamanya · Tidak perlu kartu kredit"
   },
   "footer": {
     "privacy": "Privasi",
@@ -171,7 +175,57 @@
     "may": "Mei"
   },
   "dashboard": {
-    "placeholder": "dashboard berfungsi!"
+    "nav": {
+      "overview": "Ringkasan",
+      "expenses": "Pengeluaran",
+      "budget": "Anggaran",
+      "analytics": "Analitik"
+    },
+    "budget": "Anggaran",
+    "spent": "Pengeluaran",
+    "remaining": "Sisa",
+    "used": "terpakai",
+    "daysLeft": "hari tersisa",
+    "used": "terpakai",
+    "dailyAvg": "Rata-rata harian",
+    "perDay": "per hari",
+    "transactions": "Transaksi",
+    "topCategory": "Kategori terbesar",
+    "addExpense": "Tambah Pengeluaran",
+    "expenses": "Pengeluaran",
+    "noExpenses": "Belum ada pengeluaran",
+    "noExpensesDesc": "Tambahkan pengeluaran pertama Anda untuk mulai melacak.",
+    "changePassword": "Ubah kata sandi",
+    "logout": "Keluar",
+    "deleteTitle": "Hapus pengeluaran",
+    "deleteDesc": "Apakah Anda yakin ingin menghapus",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "form": {
+      "name": "Nama",
+      "namePlaceholder": "cth. Belanja bahan makanan",
+      "nameRequired": "Nama wajib diisi.",
+      "amount": "Jumlah",
+      "amountRequired": "Jumlah wajib diisi.",
+      "category": "Kategori",
+      "categoryRequired": "Pilih kategori.",
+      "date": "Tanggal",
+      "note": "Catatan",
+      "notePlaceholder": "Catatan opsional...",
+      "optional": "(opsional)",
+      "save": "Simpan pengeluaran",
+      "cancel": "Batal"
+    },
+    "cat": {
+      "food": "Makanan",
+      "housing": "Tempat Tinggal",
+      "transport": "Transportasi",
+      "shopping": "Belanja",
+      "health": "Kesehatan",
+      "entertainment": "Hiburan",
+      "education": "Pendidikan",
+      "other": "Lainnya"
+    }
   },
   "errors": {
     "invalidCredentials": "Nama pengguna atau kata sandi salah.",

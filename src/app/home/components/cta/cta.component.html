@@ -1,12 +1,14 @@
-<section class="cta-section">
+<section class="cta-section" appReveal>
   <div class="cta-card">
+    <div class="cta-badge">{{ 'cta.badge' | transloco }}</div>
     <h2>{{ 'cta.heading' | transloco }}</h2>
     <p>{{ 'cta.description' | transloco }}</p>
-    <button routerLink="/signup" class="btn-primary">
+    <a routerLink="/signup" class="btn-cta">
       {{ 'cta.button' | transloco }}
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
-    </button>
+    </a>
+    <p class="cta-trust">{{ 'cta.trust' | transloco }}</p>
   </div>
 </section>

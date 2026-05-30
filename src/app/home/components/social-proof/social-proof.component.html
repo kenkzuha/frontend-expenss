@@ -1,5 +1,6 @@
 <section class="social-proof">
-  <div class="sp-nums">
+
+  <div class="sp-nums" appReveal>
     <div *ngFor="let stat of stats" class="sp-num">
       <div class="sp-val">{{ stat.value }}</div>
       <div class="sp-label">{{ stat.labelKey | transloco }}</div>
@@ -7,7 +8,12 @@
   </div>
 
   <div class="testimonials">
-    <div *ngFor="let t of testimonials" class="testi">
+    <div *ngFor="let t of testimonials; let i = index" class="testi" appReveal [revealDelay]="i * 100">
+      <div class="testi-stars">
+        <svg *ngFor="let s of [1,2,3,4,5]" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+        </svg>
+      </div>
       <p class="testi-text">"{{ t.quoteKey | transloco }}"</p>
       <div class="testi-author">
         <div class="testi-avatar">{{ t.initials }}</div>
@@ -18,4 +24,5 @@
       </div>
     </div>
   </div>
+
 </section>

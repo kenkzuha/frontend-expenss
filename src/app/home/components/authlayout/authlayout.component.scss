@@ -57,9 +57,12 @@
   letter-spacing: -0.6px;
   color: var(--text);
   line-height: 1;
+}
 
-  em {
-    font-style: normal;
-    color: var(--accent);
-  }
+.logo-accent {
+  color: var(--accent);
+}
+
+.auth-nav {
+  animation: fadeIn 0.3s ease-out;
 }

@@ -4,11 +4,13 @@
     "getStarted": "Get started"
   },
   "hero": {
+    "badge": "Built for life in Japan",
     "title": "Your finances,",
     "titleMuted": "finally under control.",
-    "description": "Expenss helps you track every money, manage your budget, and understand where your money actually goes — no confusion, no clutter.",
+    "description": "Expenss helps you track every yen, manage your monthly budget, and understand where your money actually goes — designed for life in Japan.",
     "startForFree": "Start for free",
-    "seeHowItWorks": "See how it works"
+    "seeHowItWorks": "See how it works",
+    "trustNote": "Free forever · No credit card required"
   },
   "appPreview": {
     "mayOverview": "May overview",
@@ -51,9 +53,11 @@
     "testimonial2Location": "Canadian · Tokyo"
   },
   "cta": {
+    "badge": "Get started",
     "heading": "Start tracking today.",
     "description": "Free to use. No spreadsheets, no headaches.",
-    "button": "Create free account"
+    "button": "Create free account",
+    "trust": "Free forever · No credit card required"
   },
   "footer": {
     "privacy": "Privacy",
@@ -171,7 +175,57 @@
     "may": "May"
   },
   "dashboard": {
-    "placeholder": "dashboard works!"
+    "nav": {
+      "overview": "Overview",
+      "expenses": "Expenses",
+      "budget": "Budget",
+      "analytics": "Analytics"
+    },
+    "budget": "Budget",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "used": "used",
+    "daysLeft": "days left",
+    "used": "used",
+    "dailyAvg": "Daily avg",
+    "perDay": "per day",
+    "transactions": "Transactions",
+    "topCategory": "Top category",
+    "addExpense": "Add Expense",
+    "expenses": "Expenses",
+    "noExpenses": "No expenses yet",
+    "noExpensesDesc": "Add your first expense to start tracking your spending.",
+    "changePassword": "Change password",
+    "logout": "Log out",
+    "deleteTitle": "Delete expense",
+    "deleteDesc": "Are you sure you want to delete",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "e.g. Grocery run",
+      "nameRequired": "Name is required.",
+      "amount": "Amount",
+      "amountRequired": "Amount is required.",
+      "category": "Category",
+      "categoryRequired": "Please select a category.",
+      "date": "Date",
+      "note": "Note",
+      "notePlaceholder": "Optional note...",
+      "optional": "(optional)",
+      "save": "Save expense",
+      "cancel": "Cancel"
+    },
+    "cat": {
+      "food": "Food & Dining",
+      "housing": "Housing",
+      "transport": "Transport",
+      "shopping": "Shopping",
+      "health": "Health",
+      "entertainment": "Entertainment",
+      "education": "Education",
+      "other": "Other"
+    }
   },
   "errors": {
     "invalidCredentials": "Invalid username or password.",

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
+import { RevealDirective } from '../../../shared/reveal.directive';
 
 export interface Feature {
   icon: string;
@@ -11,7 +12,7 @@ export interface Feature {
 @Component({
   selector: 'app-features',
   standalone: true,
-  imports: [CommonModule, TranslocoModule],
+  imports: [CommonModule, TranslocoModule, RevealDirective],
   templateUrl: './features.component.html',
   styleUrls: ['./features.component.scss'],
 })

@@ -1,16 +1,30 @@
-<div class="preview-wrap">
+<div class="preview-wrap" appReveal>
   <div class="preview-frame">
 
     <div class="topbar">
       <span class="dot dot--red"></span>
       <span class="dot dot--yellow"></span>
       <span class="dot dot--green"></span>
+      <span class="topbar-title">Expenss</span>
     </div>
 
     <div class="preview-content">
       <div class="preview-header">
-        <span class="preview-title">{{ 'appPreview.mayOverview' | transloco }}</span>
-        <span class="preview-sub">{{ 'appPreview.budget' | transloco }}</span>
+        <div>
+          <span class="preview-title">{{ 'appPreview.mayOverview' | transloco }}</span>
+          <span class="preview-sub">{{ 'appPreview.budget' | transloco }}</span>
+        </div>
+        <div class="preview-badge">69%</div>
+      </div>
+
+      <!-- Budget progress bar -->
+      <div class="budget-bar">
+        <div class="budget-fill"></div>
+      </div>
+      <div class="budget-labels">
+        <span>¥0</span>
+        <span>{{ 'appPreview.spent' | transloco }} ¥138k</span>
+        <span>¥200k</span>
       </div>
 
       <div class="stats-grid">

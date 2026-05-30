@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
+import { RevealDirective } from '../../../shared/reveal.directive';
 
 export interface Stat {
   value: string;
@@ -17,7 +18,7 @@ export interface Testimonial {
 @Component({
   selector: 'app-social-proof',
   standalone: true,
-  imports: [CommonModule, TranslocoModule],
+  imports: [CommonModule, TranslocoModule, RevealDirective],
   templateUrl: './social-proof.component.html',
   styleUrls: ['./social-proof.component.scss'],
 })

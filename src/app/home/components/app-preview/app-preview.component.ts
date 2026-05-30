@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
+import { RevealDirective } from '../../../shared/reveal.directive';
 
 export interface Transaction {
   icon: string;
@@ -12,7 +13,7 @@ export interface Transaction {
 @Component({
   selector: 'app-app-preview',
   standalone: true,
-  imports: [CommonModule, TranslocoModule],
+  imports: [CommonModule, TranslocoModule, RevealDirective],
   templateUrl: './app-preview.component.html',
   styleUrls: ['./app-preview.component.scss'],
 })

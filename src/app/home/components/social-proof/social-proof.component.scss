@@ -1,5 +1,5 @@
 .social-proof {
-  padding: 0 32px 56px;
+  padding: 0 32px 72px;
   max-width: 680px;
   margin: 0 auto;
 }
@@ -7,70 +7,90 @@
 .sp-nums {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 36px;
+  gap: 1px;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .sp-num {
   text-align: center;
+  padding: 28px 16px;
+  background: var(--bg2);
 }
 
 .sp-val {
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: -1px;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
   color: var(--text);
+  line-height: 1;
+  margin-bottom: 6px;
 }
 
 .sp-label {
   font-size: 12px;
   color: var(--text3);
-  margin-top: 3px;
+  font-weight: 400;
 }
 
 .testimonials {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
 }
 
 .testi {
   background: var(--bg2);
   border: 0.5px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 18px;
+  padding: 22px;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: var(--border2);
+  }
+}
+
+.testi-stars {
+  display: flex;
+  gap: 2px;
+  color: #f59e0b;
+  margin-bottom: 12px;
 }
 
 .testi-text {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--text2);
-  line-height: 1.65;
-  margin-bottom: 14px;
+  line-height: 1.7;
+  margin-bottom: 16px;
   font-weight: 300;
 }
 
 .testi-author {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
 }
 
 .testi-avatar {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--bg3);
+  background: var(--accent-bg);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  font-weight: 500;
-  color: var(--text2);
+  font-weight: 600;
+  color: var(--accent);
   flex-shrink: 0;
 }
 
 .testi-name {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text);
 }
@@ -78,4 +98,5 @@
 .testi-loc {
   font-size: 11px;
   color: var(--text3);
+  margin-top: 1px;
 }
